@@ -118,14 +118,14 @@ impl BamBoostMerkleTree {
         file.write_all(serialized.as_bytes()).unwrap();
     }
 
-    pub fn get_node(&self, claimant: &Pubkey) -> TreeNode {
+    pub fn get_node(&self, claimant: &Pubkey) -> Option<TreeNode> {
         for i in self.tree_nodes.iter() {
             if i.claimant == *claimant {
-                return i.clone();
+                return Some(i.clone());
             }
         }
 
-        panic!("Claimant not found in tree");
+        None
     }
 
     fn validate(&self) -> Result<()> {

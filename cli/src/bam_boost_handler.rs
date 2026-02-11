@@ -148,7 +148,7 @@ impl BamBoostCliHandler {
                 }
             };
 
-        let node = merkle_tree.get_node(&signer.pubkey());
+        let node = merkle_tree.get_node(&signer.pubkey()).expect("Claimant not found in the Merkle Tree");
 
         let mut ix_builder = ClaimBuilder::new();
         ix_builder
