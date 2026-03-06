@@ -77,11 +77,6 @@ impl BamBoostMerkleTree {
             tree_nodes,
         };
 
-        println!(
-            "created merkle tree with {} nodes and max total claim of {}",
-            tree.max_num_nodes, tree.max_total_claim
-        );
-
         tree.validate()?;
 
         Ok(tree)
